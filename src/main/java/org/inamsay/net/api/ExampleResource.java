@@ -1,4 +1,4 @@
-package org.inamsay.net;
+package org.inamsay.net.api;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

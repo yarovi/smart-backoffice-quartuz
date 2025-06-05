@@ -66,6 +66,146 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Category'
+
+  /articles:
+    get:
+      tags:
+        - Articles
+      operationId: getArticles
+      responses:
+        200:
+          description: A list of articles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Article'
+    post:
+      tags:
+        - Articles
+      operationId: createArticle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Article'
+      responses:
+        201:
+          description: Article created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Article'
+  /articles/{articleId}:
+    parameters:
+      - name: articleId
+        in: path
+        required: true
+        schema:
+          type: number
+    put:
+      tags:
+        - Articles
+      operationId: updateArticle
+      requestBody:
+        description: Update an article
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Article'
+      responses:
+        200:
+          description: Article updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Article'
+    delete:
+      operationId: deleteArticle
+      responses:
+        200:
+          description: Article deleted successfully
+    get:
+      operationId: getArticleById
+      responses:
+        200:
+          description: Article details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Article'
+  /tables:
+    get:
+      tags:
+        - Tables
+      operationId: getTables
+      responses:
+        200:
+          description: A list of tables
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Table'
+    post:
+        tags:
+          - Tables
+        operationId: createTable
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Table'
+        responses:
+          201:
+            description: Table created successfully
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Table'
+
+  /tables/{tableId}:
+    parameters:
+      - name: tableId
+        in: path
+        required: true
+        schema:
+          type: number
+    put:
+      tags:
+        - Tables
+      operationId: updateTable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Table'
+      responses:
+        200:
+          description: Table updated successfully
+    delete:
+      tags:
+        - Tables
+      operationId: deleteTable
+      responses:
+        200:
+          description: Table deleted successfully
+    get:
+      tags:
+        - Tables
+      operationId: getTableById
+      responses:
+        200:
+          description: Table details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Table'
+
 components:
   schemas:
     Category:
@@ -77,6 +217,26 @@ components:
           type: string
         picture:
           type: string
+    Article:
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        picture:
+          type: string
+    Table:
+      type: object
+      properties:
+        name:
+          type: string
+        seatCount:
+          type: string
+        active:
+          type: boolean
   responses:
     201:
       description: Category created successfully
