@@ -65,6 +65,12 @@
             <artifactId>jakarta.validation-api</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>5.5.5</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -85,9 +91,11 @@
                             <apiPackage>org.inamsay.net.smartbackoffice.api</apiPackage>
                             <modelPackage>org.inamsay.net.smartbackoffice.api.model</modelPackage>
                             <configOptions>
-                                <sourceFolder>src/gen/java/main</sourceFolder>
+                                <sourceFolder>src/main/java</sourceFolder>
                                 <useJakartaEe>true</useJakartaEe>
                                 <generateModelDocumentation>false</generateModelDocumentation>
+                                <useSwaggerAnnotations>false</useSwaggerAnnotations>
+                                <interfaceOnly>true</interfaceOnly>
                             </configOptions>
                         </configuration>
                     </execution>
