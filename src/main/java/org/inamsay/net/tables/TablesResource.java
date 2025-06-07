@@ -1,10 +1,9 @@
-package org.inamsay.net.api;
+package org.inamsay.net.tables;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
-import org.inamsay.net.TablesService;
 import org.inamsay.net.smartbackoffice.api.TablesApi;
-import org.inamsay.net.smartbackoffice.api.model.Table;
+import org.inamsay.net.smartbackoffice.api.model.ApiTable;
 
 import java.math.BigDecimal;
 
@@ -18,10 +17,22 @@ public class TablesResource implements TablesApi {
   }
 
   @Override
-  public Response createTable(Table table) {
+  public Response createTable(ApiTable apitable) {
+
+    final Table table = new Table();
+    table.setName(apitable.getName());
+    table.setSeatCount(apitable.getSeatCount());
+    table.setActive(apitable.getActive());
+
+    final Table persistedTable = tablesService.persit(table);
+
+    return Response.created(
+            java.net.URI.create("tables/" + persistedTable.getId())
+    ).build();
+    /*
     return Response.created(
             java.net.URI.create("todo")
-    ).build();
+    ).build();*/
   }
 
   @Override
@@ -40,7 +51,7 @@ public class TablesResource implements TablesApi {
   }
 
   @Override
-  public Response updateTable(BigDecimal tableId, Table table) {
+  public Response updateTable(BigDecimal tableId, ApiTable table) {
     return Response.ok().build();
   }
 }

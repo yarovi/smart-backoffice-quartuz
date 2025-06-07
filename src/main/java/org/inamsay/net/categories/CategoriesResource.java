@@ -1,8 +1,7 @@
-package org.inamsay.net.api;
+package org.inamsay.net.categories;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
-import org.inamsay.net.CategoriesService;
 import org.inamsay.net.smartbackoffice.api.CategoriesApi;
 import org.inamsay.net.smartbackoffice.api.model.Category;
 

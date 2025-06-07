@@ -1,0 +1,9 @@
+
+POST {{host}}:{{port}}/tables
+Content-Type: application/json
+
+{
+"name": "characato",
+"seatCount": 3,
+"active": false
+}

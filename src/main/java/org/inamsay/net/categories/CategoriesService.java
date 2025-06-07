@@ -1,4 +1,4 @@
-package org.inamsay.net;
+package org.inamsay.net.categories;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import org.inamsay.net.smartbackoffice.api.model.Category;

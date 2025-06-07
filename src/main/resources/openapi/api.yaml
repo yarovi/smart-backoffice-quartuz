@@ -149,7 +149,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Table'
+                  $ref: '#/components/schemas/apiTable'
     post:
         tags:
           - Tables
@@ -159,14 +159,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Table'
+                $ref: '#/components/schemas/apiTable'
         responses:
           201:
             description: Table created successfully
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Table'
+                  $ref: '#/components/schemas/apiTable'
 
   /tables/{tableId}:
     parameters:
@@ -183,7 +183,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Table'
+              $ref: '#/components/schemas/apiTable'
       responses:
         200:
           description: Table updated successfully
@@ -204,7 +204,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Table'
+                $ref: '#/components/schemas/apiTable'
 
 components:
   schemas:
@@ -228,13 +228,13 @@ components:
           type: string
         picture:
           type: string
-    Table:
+    apiTable:
       type: object
       properties:
         name:
           type: string
         seatCount:
-          type: string
+          type: integer
         active:
           type: boolean
   responses:

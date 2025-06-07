@@ -1,8 +1,7 @@
-package org.inamsay.net.api;
+package org.inamsay.net.articles;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
-import org.inamsay.net.ArticleService;
 import org.inamsay.net.smartbackoffice.api.ArticlesApi;
 import org.inamsay.net.smartbackoffice.api.model.Article;
 
