@@ -18,7 +18,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Category'
+                  $ref: '#/components/schemas/apiCategory'
     post:
       tags:
         - Categories
@@ -28,7 +28,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Category'
+              $ref: '#/components/schemas/apiCategory'
       responses:
         201:
           $ref: '#/components/responses/201'
@@ -38,7 +38,7 @@ paths:
         in: path
         required: true
         schema:
-          type: number
+          $ref: '#/components/schemas/id'
     put:
       tags:
         - Categories
@@ -48,7 +48,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Category'
+              $ref: '#/components/schemas/apiCategory'
       responses:
         200:
           description: Category updated successfully
@@ -65,7 +65,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Category'
+                $ref: '#/components/schemas/apiCategory'
 
   /articles:
     get:
@@ -80,31 +80,39 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Article'
+                  $ref: '#/components/schemas/apiArticle'
     post:
       tags:
         - Articles
+      parameters:
+        - name: categoryId
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
       operationId: createArticle
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Article'
+              $ref: '#/components/schemas/apiArticle'
       responses:
         201:
           description: Article created successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Article'
+                $ref: '#/components/schemas/apiArticle'
   /articles/{articleId}:
     parameters:
       - name: articleId
         in: path
         required: true
         schema:
-          type: number
+          $ref: '#/components/schemas/id'
+
     put:
       tags:
         - Articles
@@ -114,14 +122,11 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Article'
+              $ref: '#/components/schemas/apiArticle'
       responses:
         200:
           description: Article updated successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Article'
+
     delete:
       operationId: deleteArticle
       responses:
@@ -135,7 +140,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Article'
+                $ref: '#/components/schemas/apiArticle'
   /tables:
     get:
       tags:
@@ -174,7 +179,7 @@ paths:
         in: path
         required: true
         schema:
-          type: number
+          $ref: '#/components/schemas/id'
     put:
       tags:
         - Tables
@@ -208,18 +213,29 @@ paths:
 
 components:
   schemas:
-    Category:
+    apiCategory:
       type: object
+      required:
+        - name
+        - description
       properties:
+        id:
+          type: integer
+          format: int64
         name:
           type: string
         description:
           type: string
-        picture:
-          type: string
-    Article:
+    apiArticle:
       type: object
+      required:
+          - name
+          - price
+          - description
       properties:
+        id:
+          type: integer
+          format: int64
         name:
           type: string
         price:
@@ -230,13 +246,23 @@ components:
           type: string
     apiTable:
       type: object
+      required:
+        - name
+        - seatCount
+        - active
       properties:
+        id:
+          type: integer
+          format: int64
         name:
           type: string
         seatCount:
           type: integer
         active:
           type: boolean
+    id:
+      type: integer
+      format: int64
   responses:
     201:
       description: Category created successfully

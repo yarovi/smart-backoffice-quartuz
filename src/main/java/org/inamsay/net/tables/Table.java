@@ -1,18 +1,19 @@
 package org.inamsay.net.tables;
 
 import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotNull;
 import org.inamsay.net.BaseEntity;
 
 @Entity
-@jakarta.persistence.Table(name = "sbo_tables")
+@jakarta.persistence.Table(name = "sbo_tables",
+        uniqueConstraints = @jakarta.persistence.UniqueConstraint(columnNames = {"name"}))
 public class Table extends BaseEntity {
+  @NotNull
   private String name;
+  @NotNull
   private Integer seatCount;
+  @NotNull
   private Boolean active;
-
-  public Table() {
-    // Default constructor for JPA
-  }
 
 
   public String getName() {

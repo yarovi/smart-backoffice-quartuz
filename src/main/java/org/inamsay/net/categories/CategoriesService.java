@@ -1,12 +1,24 @@
 package org.inamsay.net.categories;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import org.inamsay.net.smartbackoffice.api.model.Category;
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import org.inamsay.net.CrudService;
 
 @ApplicationScoped
-public class CategoriesService {
+public class CategoriesService extends CrudService<Category> {
 
-  public Category get(){
-    return new Category().name("very fancy drink");
+  public CategoriesService(){
+    super(null);
+  }
+
+  @Inject
+  public CategoriesService(EntityManager entityManager) {
+    super(entityManager);
+  }
+
+  @Override
+  protected Class<Category> getEntityClass() {
+    return Category.class;
   }
 }

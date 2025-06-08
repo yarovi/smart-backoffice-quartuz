@@ -4,6 +4,26 @@ Content-Type: application/json
 
 {
 "name": "characato",
-"seatCount": 3,
-"active": false
+"seatCount": 30
+
+
+
+}
+
+###
+GET {{host}}:{{port}}/tables
+Content-Type: application/json
+
+###
+
+GET {{host}}:{{port}}/tables/{{tableId}}
+Content-Type: application/json
+###
+PUT {{host}}:{{port}}/tables/{{tableId}}
+Content-Type: application/json
+
+{
+  "name": "characato modificado",
+  "seatCount": 40,
+  "active": false
 }

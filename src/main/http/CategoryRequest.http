@@ -1,0 +1,27 @@
+GET {{host}}:{{port}}/api/v1/categories
+Content-Type: application/json
+###
+
+GET {{host}}:{{port}}/categories/{{categoryId}}
+Content-Type: application/json
+###
+
+POST {{host}}:{{port}}/categories
+x-category-id: 1
+Content-Type: application/json
+
+{
+  "name": "New Category",
+  "description": "This is a new category"
+}
+
+###
+
+PUT {{host}}:{{port}}/api/v1/categories/5
+Content-Type: application/json
+
+{
+  "name": "Updated Category",
+  "description": "This is an updated category"
+}
+###

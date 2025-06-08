@@ -1,0 +1,1 @@
+select * from sbo_tables;
