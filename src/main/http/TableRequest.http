@@ -3,9 +3,9 @@ POST {{host}}:{{port}}/tables
 Content-Type: application/json
 
 {
-"name": "characato",
-"seatCount": 30
-
+"name": "characato11",
+  "seatCount": 30,
+  "active": false
 
 
 }

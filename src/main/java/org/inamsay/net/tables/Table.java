@@ -1,5 +1,6 @@
 package org.inamsay.net.tables;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 import org.inamsay.net.BaseEntity;
@@ -9,10 +10,13 @@ import org.inamsay.net.BaseEntity;
         uniqueConstraints = @jakarta.persistence.UniqueConstraint(columnNames = {"name"}))
 public class Table extends BaseEntity {
   @NotNull
+  @Column(nullable = false)
   private String name;
   @NotNull
+  @Column(nullable = false)
   private Integer seatCount;
-  @NotNull
+  @NotNull(message = "darf nicht null sein")
+  @Column(nullable = false)
   private Boolean active;
 
 

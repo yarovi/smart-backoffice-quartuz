@@ -15,8 +15,8 @@ import java.math.BigDecimal;
 })
 @NamedQuery(name="Article.byCategory",
     query = "FROM Article  WHERE category.id = :id order by price desc")
-@NamedQuery(name="Article.nameContaining",
-        query = "FROM Article  WHERE name like contac('%',contact(?1,'%'))")
+/*@NamedQuery(name="Article.nameContaining",
+        query = "FROM Article  WHERE name like contac('%',contact(?1,'%'))")*/
 public class Article extends BaseEntity {
 
   @NotNull

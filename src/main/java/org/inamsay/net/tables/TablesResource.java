@@ -5,16 +5,22 @@ import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.Response;
 import org.inamsay.net.smartbackoffice.api.TablesApi;
 import org.inamsay.net.smartbackoffice.api.model.ApiTable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+
 public class TablesResource implements TablesApi {
+
+  Logger logger = LoggerFactory.getLogger(TablesResource.class);
 
   private final TablesService tablesService;
 
@@ -26,13 +32,12 @@ public class TablesResource implements TablesApi {
     this.tableMapper = tableMapper;
   }
 
-
   @Override
-  public Response createTable(@Valid @
-          NotNull ApiTable apiTable) {
+  public Response createTable( ApiTable apiTable) {
     final Table table= new Table();
     tableMapper.mapToTable(apiTable, table);
     final Table persistedTable = tablesService.persit(table);
+    logger.info("Table created with ID: {}", persistedTable.getName());
     return Response.created(
             URI.create("tables/" + persistedTable.getId())
     ).build();
