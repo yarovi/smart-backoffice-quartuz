@@ -1,9 +1,10 @@
 package org.inamsay.net;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
 @MappedSuperclass
-public class BaseEntity {
+public class BaseEntity extends PanacheEntityBase {
 
   @Id
   @SequenceGenerator(name = "entity_seq", sequenceName = "entity_seq")

@@ -6,17 +6,14 @@ import jakarta.validation.constraints.NotNull;
 import org.inamsay.net.BaseEntity;
 
 @Entity
-@jakarta.persistence.Table(name = "sbo_tables",
+@jakarta.persistence.Table(name = "sbo_table",
         uniqueConstraints = @jakarta.persistence.UniqueConstraint(columnNames = {"name"}))
 public class Table extends BaseEntity {
   @NotNull
-  @Column(nullable = false)
   private String name;
   @NotNull
-  @Column(nullable = false)
   private Integer seatCount;
   @NotNull(message = "darf nicht null sein")
-  @Column(nullable = false)
   private Boolean active;
 
 

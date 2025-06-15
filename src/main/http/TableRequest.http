@@ -4,10 +4,8 @@ Content-Type: application/json
 
 {
 "name": "characato11",
-  "seatCount": 30,
-  "active": false
-
-
+"seatCount": 30,
+"active": false
 }
 
 ###
@@ -16,10 +14,10 @@ Content-Type: application/json
 
 ###
 
-GET {{host}}:{{port}}/tables/{{tableId}}
+GET {{host}}:{{port}}/tables/3000
 Content-Type: application/json
 ###
-PUT {{host}}:{{port}}/tables/{{tableId}}
+PUT {{host}}:{{port}}/tables/3000
 Content-Type: application/json
 
 {
