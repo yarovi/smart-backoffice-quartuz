@@ -38,13 +38,10 @@
     </dependencyManagement>
 
     <dependencies>
-
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
         </dependency>
-
-
         <!--        Dependency to openapi-->
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -54,15 +51,21 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest-jackson</artifactId>
         </dependency>
-
-
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-orm-rest-data-panache</artifactId>
+            <artifactId>quarkus-hibernate-reactive-rest-data-panache</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-config-yaml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-reactive-pg-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-reactive-panache</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -74,67 +77,17 @@
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.openapitools</groupId>-->
-<!--            <artifactId>openapi-generator</artifactId>-->
-<!--            <version>7.9.0</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.validation</groupId>-->
-<!--            <artifactId>jakarta.validation-api</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-path</artifactId>
             <version>5.5.5</version>
         </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-orm</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-postgresql</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-orm-panache</artifactId>
-        </dependency>
-
 
     </dependencies>
 
     <build>
         <plugins>
 
-<!--            <plugin>-->
-<!--                <groupId>org.openapitools</groupId>-->
-<!--                <artifactId>openapi-generator-maven-plugin</artifactId>-->
-<!--                <version>7.9.0</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>generate-api JAX-RS</id>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <inputSpec>${project.basedir}/src/main/resources/META-INF/api.yaml</inputSpec>-->
-<!--                            <generatorName>jaxrs-spec</generatorName>-->
-<!--                            <apiPackage>org.inamsay.net.smartbackoffice.api</apiPackage>-->
-<!--                            <modelPackage>org.inamsay.net.smartbackoffice.api.model</modelPackage>-->
-<!--                            <configOptions>-->
-<!--                                <sourceFolder>src/main/java</sourceFolder>-->
-<!--                                <useJakartaEe>true</useJakartaEe>-->
-<!--                                <generateModelDocumentation>false</generateModelDocumentation>-->
-<!--                                <useSwaggerAnnotations>false</useSwaggerAnnotations>-->
-<!--                                <interfaceOnly>true</interfaceOnly>-->
-<!--                                <returnResponse>true</returnResponse>-->
-<!--                                <useBeanValidation>true</useBeanValidation>-->
-<!--                            </configOptions>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
             <plugin>
                 <groupId>${quarkus.platform.group-id}</groupId>
                 <artifactId>quarkus-maven-plugin</artifactId>

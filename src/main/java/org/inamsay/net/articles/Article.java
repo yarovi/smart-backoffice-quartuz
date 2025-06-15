@@ -13,7 +13,8 @@ import java.math.BigDecimal;
 @Table(uniqueConstraints = {
     @jakarta.persistence.UniqueConstraint(columnNames = {"name", "category_id"})
 })
-
+@NamedQuery(name="Article.byCategory",query="from Article where category.id= :id order by price desc")
+@NamedQuery(name="Article.nameContaining",query="from Article where name like concat('%',concat(?1,'%'))")
 public class Article extends BaseEntity {
 
   @NotNull
@@ -29,9 +30,49 @@ public class Article extends BaseEntity {
   @NotNull
   private String pictureBase64;
 
-  @ManyToOne(optional = false)
+  @NotNull
   @JoinColumn(name = "category_id")
+  @ManyToOne
   private Category category;
 
 
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public BigDecimal getPrice() {
+    return price;
+  }
+
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getPictureBase64() {
+    return pictureBase64;
+  }
+
+  public void setPictureBase64(String pictureBase64) {
+    this.pictureBase64 = pictureBase64;
+  }
+
+  public Category getCategory() {
+    return category;
+  }
+
+  public void setCategory(Category category) {
+    this.category = category;
+  }
 }

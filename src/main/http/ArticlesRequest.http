@@ -1,0 +1,5 @@
+GET {{host}}:{{port}}/article/name?s=of
+###
+
+GET {{host}}:{{port}}/article
+
