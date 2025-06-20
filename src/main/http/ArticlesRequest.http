@@ -3,3 +3,11 @@ GET {{host}}:{{port}}/article/name?s=of
 
 GET {{host}}:{{port}}/article
 
+###
+
+GET {{host}}:{{port}}/article
+Authorization: Basic Ym9iOnBhc3N3b3Jkd3A=
+###
+
+GET {{host}}:{{port}}/article/name?s=of
+Authorization: Basic YWxpY2U6d3A=

@@ -26,3 +26,7 @@ insert into sbo_table values (true, 8, 3001, 'Stockholm');
 insert into sbo_table values (true, 12, 3002, 'New York');
 insert into sbo_table values (false, 4, 3003, 'Munich');
 insert into sbo_table values (true, 6, 3004, 'Barcelona');
+
+--user
+insert into sbo_user values(1000,'$2y$10$efcebGHy04TepOnzBcS4ae6abKm9BLHcA858hCeDxUWgpK9cPg0aW','admin','bob');//passwordwp
+insert into sbo_user values(1001,'$2y$10$1JlzRE6VxC47RGoI1Okw0.exJRWQs3ANOJ6Hxm3rh2zYs7/we.xX2','user','alice');//wp
