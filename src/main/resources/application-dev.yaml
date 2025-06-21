@@ -8,3 +8,12 @@ quarkus:
   hibernate-orm:
     schema-management:
       strategy: drop-and-create
+  http:
+    auth:
+      form:
+        enabled: true
+        encryption-key: "qwertyuiopasdfghjklzxcvbnm123456"
+  security:
+    users:
+      jpa-reactive:
+        enabled: true

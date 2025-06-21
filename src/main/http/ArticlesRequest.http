@@ -11,3 +11,5 @@ Authorization: Basic Ym9iOnBhc3N3b3Jkd3A=
 
 GET {{host}}:{{port}}/article/name?s=of
 Authorization: Basic YWxpY2U6d3A=
+#tools to bcrypt https://bcrypt.online/
+#tool to generate: https://it-tools.tech/basic-auth-generator
